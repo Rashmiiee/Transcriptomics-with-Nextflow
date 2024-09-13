@@ -1,0 +1,14 @@
+process {
+    executor = 'slurm'  // Use the SLURM scheduler
+    queue = 'your_queue_name'  // Specify the queue/partition
+    cpus = 8  // Number of CPUs per task
+    memory = '32 GB'  // Memory allocation per task
+    time = '12h'  // Time limit
+    module = 'java/1.8.0'  //  loading a module
+}
+params {
+    bam_dir = "/path/to/your/bam_dir"
+    annotation_file = "/path/to/your/annotation_file"
+}
+
+//To run this configuration use nextflow run main.nf -profile hpc/slurm
